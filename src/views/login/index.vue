@@ -110,6 +110,7 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then((key, value) => {
+            console.log(key, value)
             localStorage.setItem('username', this.loginForm.username)
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false

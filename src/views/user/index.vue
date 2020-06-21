@@ -8,9 +8,6 @@
       <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="dialogFormVisible = true">
         添加用户
       </el-button>
-      <el-checkbox v-model="showReviewer" class="filter-item" style="margin-left:15px;">
-        操作人
-      </el-checkbox>
       <el-checkbox v-model="showRole" class="filter-item" style="margin-left:15px;">
         用户角色
       </el-checkbox>
@@ -100,17 +97,6 @@
         width="180">
       </el-table-column>
       <el-table-column
-        v-if="showReviewer"
-        prop="operator"
-        label="操作人"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="updateTime"
-        label="上次修改时间"
-        width="180">
-      </el-table-column>
-      <el-table-column
         label="操作"
         width="180">
         <template slot-scope="scope">
@@ -169,15 +155,15 @@ export default {
       rePass: ''
     }
   },
-  watch: {
-    userList(old, newV) {
-      for (let i = 0; i < this.userList.length; i++) {
-        this.userList[i].createTime = formatTime(this.userList[i].createTime)
-        this.userList[i].updateTime = formatTime(this.userList[i].updateTime)
-      }
-      return this.userList
-    }
-  },
+  // watch: {
+  //   userList(old, newV) {
+  //     // for (let i = 0; i < this.userList.length; i++) {
+  //     //   // this.userList[i].createTime = formatTime(this.userList[i].createTime)
+  //     //   this.userList[i].updateTime = formatTime(this.userList[i].updateTime)
+  //     // }
+  //     return this.userList
+  //   }
+  // },
   mounted() {
     this.getUserList()
   },
